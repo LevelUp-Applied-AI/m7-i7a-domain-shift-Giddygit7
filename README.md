@@ -15,10 +15,12 @@ make apply                 # your real model on full 1,033-row tech-news corpus
 
 ## TODO for learner — fill these in before submitting
 
-- **Hugging Face Hub model URL:** _(paste your HF Hub model URL here, e.g. `https://huggingface.co/<your-username>/m7-app-review-sentiment`)_
+- **Hugging Face Hub model URL:** https://huggingface.co/huggyhugface/m7-app-review-sentiment
 - **Reproducibility command:** `cp .env.example .env` (set MODEL_HUB_ID), then `make apply`.
 - **What the model was trained on and why we're applying it here:**
-  _(1–2 paragraphs from the learner — what the app-review sentiment model was trained on, why we're testing it on tech / entertainment news, what we expect to learn about domain shift)_
+The sentiment classification model used in this pipeline was originally fine-tuned on a text dataset containing user reviews for mobile applications. Because this training data comes straight from app store reviews, it is mostly made of short, informal sentences. These reviews rely heavily on common text phrases and specific words to show user satisfaction or user complaints, such as "buggy", "crash", "slow", or "love it". The text focuses entirely on how users interact with software, technical glitches, app performance, and interface design feedback.
+
+We are now applying this exact model to a completely different dataset that contains 1,033 tech and entertainment news articles to study the effects of domain shift. News articles use formal language, much longer sentences, and standard journalistic writing style rather than personal user opinions. Testing our app review model on this new data helps us check how well a fine-tuned classifier generalizes when it faces text from an out-of-distribution source. It also lets us see where simple keyword matching and word biases cause the model to make incorrect predictions when the context changes.
 
 ## Submission
 
